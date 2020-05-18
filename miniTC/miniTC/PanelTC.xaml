@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="miniTC.PanelTC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:miniTC"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="275">
+    <StackPanel Grid.Column="0">
+        <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Label Content="path" Margin="20 0"/>
+            <TextBox Text="path" Width="200" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"  IsEnabled="False" />
+        </StackPanel>
+        <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Label Content="drive" Margin="20 0"/>
+            <ComboBox Width="50">
+                <ComboBoxItem Content="dsadas"/>
+                <ComboBoxItem Content="dsadas"/>
+            </ComboBox>
+        </StackPanel>
+        <ListBox Margin="10" MinHeight="350">
+            <ListBoxItem>dsa</ListBoxItem>
+        </ListBox>
+    </StackPanel>
+</UserControl>

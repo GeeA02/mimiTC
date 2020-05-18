@@ -20,41 +20,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Label Content="path" Margin="20 0"/>
-                    <TextBox Text="path" Width="200" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"  IsEnabled="False" />
-                </StackPanel>
-                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Label Content="drive" Margin="20 0"/>
-                    <ComboBox Width="50">
-                        <ComboBoxItem Content="dsadas"/>
-                        <ComboBoxItem Content="dsadas"/>
-                    </ComboBox>
-                </StackPanel>
-                <ListBox Margin="10" MinHeight="350">
-                    <ListBoxItem>dsa</ListBoxItem>
-                </ListBox>
-            </StackPanel>
-
-            <StackPanel Orientation="Vertical" Grid.Column="1">
-                <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Label Content="path" Margin="20 0"/>
-                    <TextBox Text="path" Width="200" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" IsEnabled="False"/>
-                </StackPanel>
-                <StackPanel x:Name="stackPanel" Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Label Content="drive" Margin="20 0"/>
-                    <ComboBox Width="50">
-                        <ComboBoxItem Content="dsadas"/>
-                        <ComboBoxItem Content="dsadas"/>
-                    </ComboBox>
-                </StackPanel>
-                
-                <ListBox x:Name="listBox" Margin="10" MinHeight="350">
-                        <ListBoxItem>dsa</ListBoxItem>
-                </ListBox>
-
-            </StackPanel>
+            <local:PanelTC Grid.Column="0"/>
+            <local:PanelTC Grid.Column="1"/>
         </Grid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
             <Button Content="Copy >>" HorizontalAlignment="Center"/>
