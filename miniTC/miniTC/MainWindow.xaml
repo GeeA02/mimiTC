@@ -32,7 +32,7 @@
             <local:PanelTC Grid.Column="1" DataContext="{Binding Right}"/>
         </Grid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
-            <Label Content="{Binding Error}"/>
+            <Label Content="{Binding Error}" Foreground="Red" Margin="0 -20"/>
             <Button Content="{Binding Copy, Source={StaticResource ResourceKey=resources}}" HorizontalAlignment="Center" Command="{Binding Copy}" CommandParameter="{Binding Mode=OneWay}"/>
         </StackPanel>
     </Grid>
