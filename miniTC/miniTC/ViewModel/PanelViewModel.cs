@@ -6,12 +6,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace miniTC.ViewModel
 {
     class PanelViewModel : BasicViewModel
     {
+        public PanelViewModel()
+        {
+            drives = Directory.GetLogicalDrives();
+            if (drives.Length != 0)
+            {
+                SelectedPath = drives[0];
+                GetFiles.Execute(this);
+            }
+        }
+
         string[] drives;
         public string[] Drives
         {
@@ -36,6 +47,8 @@ namespace miniTC.ViewModel
                 {
                     selectedPath = value;
                     OnPropertyChange(nameof(SelectedPath));
+                    if(GetFiles.CanExecute(this))
+                        GetFiles.Execute(this);
                 }
             }
         }

@@ -33,9 +33,10 @@ namespace miniTC.ViewModel.Commands
                 if (viewModel.SelectedPath == "..")
                 {
                     var splitedPath = viewModel.PreviousPath.Pop().Split('\\');
-                    viewModel.SelectedPath = String.Join("\\", splitedPath.Take(splitedPath.Length-1).ToArray());
+                    var tmpSelectedPath = String.Join("\\", splitedPath.Take(splitedPath.Length-1).ToArray());
                     if (splitedPath.Length == 2)
-                        viewModel.SelectedPath += "\\";
+                        tmpSelectedPath += "\\";
+                    viewModel.SelectedPath = tmpSelectedPath;
                 }
                 else
                 {

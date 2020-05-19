@@ -4,12 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:miniTC"
-        xmlns:vm="clr-namespace:miniTC.ViewModel"
+        xmlns:vm="clr-namespace:miniTC.ViewModel" 
+             xmlns:rs="clr-namespace:miniTC.Properties" 
         mc:Ignorable="d"
         Title="MiniTotalCommander" MinHeight="600" MinWidth="550" Height="600" Width="550">
     
     <Window.Resources>
         <vm:MainViewModel x:Key="viewModel"/>
+        <rs:Resources x:Key="resources"/>
     </Window.Resources>
     
     <Grid DataContext="{StaticResource viewModel}" Background="#FFE5E5E5">
@@ -26,11 +28,12 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <local:PanelTC Grid.Column="0"/>
-            <local:PanelTC Grid.Column="1"/>
+            <local:PanelTC Grid.Column="0" DataContext="{Binding Left}"/>
+            <local:PanelTC Grid.Column="1" DataContext="{Binding Right}"/>
         </Grid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
-            <Button Content="Copy >>" HorizontalAlignment="Center"/>
+            <Label Content="{Binding Error}"/>
+            <Button Content="{Binding Copy, Source={StaticResource ResourceKey=resources}}" HorizontalAlignment="Center" Command="{Binding Copy}" CommandParameter="{Binding Mode=OneWay}"/>
         </StackPanel>
     </Grid>
 </Window>

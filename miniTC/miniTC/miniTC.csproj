@@ -61,8 +61,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\Commands\CopyFileCommand.cs" />
     <Compile Include="ViewModel\Commands\GetFilesCommand.cs" />
-    <Compile Include="ViewModel\Commands\RelayCommand.cs" />
     <Compile Include="ViewModel\Commands\UpdateDrivesCommand.cs" />
     <Compile Include="ViewModel\PanelViewModel.cs" />
     <Page Include="MainWindow.xaml">
