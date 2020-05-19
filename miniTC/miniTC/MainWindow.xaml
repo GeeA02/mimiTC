@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:miniTC"
+        xmlns:vm="clr-namespace:miniTC.ViewModel"
         mc:Ignorable="d"
         Title="MiniTotalCommander" MinHeight="600" MinWidth="550" Height="600" Width="550">
-    <Grid Background="#FFE5E5E5">
+    
+    <Window.Resources>
+        <vm:MainViewModel x:Key="viewModel"/>
+    </Window.Resources>
+    
+    <Grid DataContext="{StaticResource viewModel}" Background="#FFE5E5E5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
