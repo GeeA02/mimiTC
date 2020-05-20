@@ -43,26 +43,31 @@ namespace miniTC.ViewModel.Commands
                     if (!String.IsNullOrEmpty(viewModel.SelectedPath) && viewModel.SelectedPath != "..")
                         viewModel.PreviousPath.Push(viewModel.SelectedPath);
                 }
-
-                string[] tmpDir = Directory.GetDirectories(viewModel.SelectedPath);
-                string[] tmpFiles = Directory.GetFiles(viewModel.SelectedPath);
-
-                List<String> FilesPath = new List<string>();
-                List<String> Files = new List<string>();
-                if (viewModel.SelectedPath.Split('\\')[1] != "")
+                try
                 {
-                    FilesPath.Add("..");
-                    Files.Add("..");
+                    string[] tmpDir = Directory.GetDirectories(viewModel.SelectedPath);
+                    string[] tmpFiles = Directory.GetFiles(viewModel.SelectedPath);
+
+                    List<String> FilesPath = new List<string>();
+                    List<String> Files = new List<string>();
+                    if (viewModel.SelectedPath.Split('\\')[1] != "")
+                    {
+                        FilesPath.Add("..");
+                        Files.Add("..");
+                    }
+                    FilesPath.AddRange(tmpDir);
+                    FilesPath.AddRange(tmpFiles);
+
+                    Files.AddRange(tmpDir.Select(file => "<D>" + file.Split('\\').Last()).ToList());
+                    Files.AddRange(tmpFiles.Select(file => file.Split('\\').Last()).ToArray());
+
+                    viewModel.Files = Files;
+                    viewModel.FilesPath = FilesPath;
+                    viewModel.SelectedFile = null;
                 }
-                FilesPath.AddRange(tmpDir);
-                FilesPath.AddRange(tmpFiles);
-
-                Files.AddRange(tmpDir.Select(file => "<D>" + file.Split('\\').Last()).ToList());
-                Files.AddRange(tmpFiles.Select(file => file.Split('\\').Last()).ToArray());
-
-                viewModel.Files = Files;
-                viewModel.FilesPath = FilesPath;
-                viewModel.SelectedFile = null;
+                catch
+                {
+                }
             }
         }
     }

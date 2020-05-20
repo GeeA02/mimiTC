@@ -39,9 +39,9 @@ namespace miniTC.ViewModel.Commands
                     viewModel.Right.GetFiles.Execute(viewModel.Right);
                     viewModel.Error = "";
                 }
-                catch
+                catch(Exception e)
                 {
-                    viewModel.Error = Properties.Resources.Error;
+                    viewModel.Error = e.Message;
                 }
             }
         }
