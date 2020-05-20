@@ -13,8 +13,7 @@ namespace miniTC.ViewModel
         public MainViewModel()
         {
             this.Left = new PanelViewModel();
-            this.Right = new PanelViewModel();
-            
+            this.Right = new PanelViewModel();            
         }
 
         PanelViewModel left;         

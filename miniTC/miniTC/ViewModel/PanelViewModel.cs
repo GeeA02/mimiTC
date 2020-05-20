@@ -15,7 +15,7 @@ namespace miniTC.ViewModel
     {
         public PanelViewModel()
         {
-            drives = Directory.GetLogicalDrives();
+            this.UpdateDrives.Execute(this);
             if (drives.Length != 0)
             {
                 SelectedPath = drives[0];

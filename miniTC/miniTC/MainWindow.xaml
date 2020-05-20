@@ -28,8 +28,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <local:PanelTC Grid.Column="0" DataContext="{Binding Left}"/>
-            <local:PanelTC Grid.Column="1" DataContext="{Binding Right}"/>
+            <local:PanelTC Grid.Column="0" DataContext="{Binding Left, Mode=TwoWay}"/>
+            <local:PanelTC Grid.Column="1" DataContext="{Binding Right, Mode=TwoWay}"/>
         </Grid>
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
             <Label Content="{Binding Error}" Foreground="Red" Margin="0 -20"/>

@@ -11,11 +11,11 @@
     <UserControl.Resources>
         <rs:Resources x:Key="resources"/>
     </UserControl.Resources>
-    
-    <StackPanel Grid.Column="0" >
+
+    <StackPanel Grid.Column="0">
         <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
             <Label Content="{Binding PathLabel, Source={StaticResource ResourceKey=resources}}" Margin="20 0"/>
-            <TextBox Text="{Binding SelectedPath}" Width="200" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"  IsEnabled="False" />
+            <TextBox Text="{Binding SelectedPath}" MinWidth="200" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"  IsEnabled="False" />
         </StackPanel>
         <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
             <Label Content="{Binding DriveLabel, Source={StaticResource ResourceKey=resources}}" Margin="20 0"/>
@@ -23,19 +23,11 @@
             <ComboBox Width="50" ItemsSource="{Binding Drives}" SelectedItem="{Binding SelectedPath}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="DropDownOpened">
-                        <i:InvokeCommandAction Command="{Binding UpdateDrives, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+                        <i:InvokeCommandAction Command="{Binding UpdateDrives}" CommandParameter="{Binding }"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
         </StackPanel>
-        <ListBox Margin="10" MinHeight="350" ItemsSource="{Binding Files}" SelectedItem="{Binding SelectedFile}" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="350" >
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding GetFiles, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-
-        </ListBox>
-
+        <ListBox Margin="10" MinHeight="350" ItemsSource="{Binding Files}" SelectedItem="{Binding SelectedFile}" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="350" />
     </StackPanel>
 </UserControl>
